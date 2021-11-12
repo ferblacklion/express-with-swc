@@ -1,0 +1,27 @@
+{
+  "name": "express-swc",
+  "version": "1.0.0",
+  "description": "Using swc compiler",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "swc src -d dist --config-file prod.swcrc",
+    "build:dev": "yarn build --config-file .swcrc && cross-env NODE_ENV=development node --inspect dist/index.js",
+    "dev": "nodemon --ext ts --exec \"yarn build:dev\"",
+    "start": "yarn build && cross-env NODE_ENV=production node dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4",
+    "@swc/cli": "^0.1.51",
+    "@swc/core": "^1.2.108",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.7",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.15"
+  }
+}
